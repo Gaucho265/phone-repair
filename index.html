@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Repair Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Phone Repair</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Phone Repair Services</h1>
+            <p>Your one-stop solution for all phone repair needs.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section><form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2023 Phone Repair Services</p>
+</footer>
+<form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <button type="submit">Submit</button>
+</form>
+<div id="error-message"></div>
+<div id="success-message"></div>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <img src="repair-icon.png" alt="Phone Repair">
+            <h3>Screen Repair</h3>
+            <p>We fix cracked and damaged screens.</p>
+        </div>
+        <div class="service-card">
+            <img src="image1.png" alt="Battery Replacement">
+            <h3>Battery Replacement</h3>
+            <p>Replace your phone's worn-out battery.</p>
+        </div>
+        <!-- Add more service cards here -->
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a team of expert technicians dedicated to providing high-quality phone repair services. With years of experience, we ensure that your device is in safe hands.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to contact us.</p>
+        
+    
+    <style>
+        /* Reset some default styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.hero {
+    background: url('hero-image.jpg') center/cover no-repeat;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.services {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.service-card img {
+    width: 50px;
+}
+
+.about {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contact {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+contact input, contact textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+contact button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+    
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+    
+                const nameValue = nameInput.value.trim();
+                const emailValue = emailInput.value.trim();
+                const messageValue = messageInput.value.trim();
+    
+                if (nameValue === '' || emailValue === '' || messageValue === '') {
+                    errorMessage.innerHTML = 'Please fill out all fields.';
+                    successMessage.innerHTML = '';
+                } else if (!isValidEmail(emailValue)) {
+                    errorMessage.innerHTML = 'Please enter a valid email address.';
+                    successMessage.innerHTML = '';
+                } else {
+                    errorMessage.innerHTML = '';
+                    successMessage.innerHTML = 'Form submitted successfully!';
+    
+                    // You can add code here to send the form data to your server.
+                    // For this example, we'll just reset the form.
+                    contactForm.reset();
+                }
+            });
+    
+            function isValidEmail(email) {
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                return emailPattern.test(email);
+            }
+        });
+    </script>
+    
+
+    
+</body>
+
+</html>
